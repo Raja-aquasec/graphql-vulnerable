@@ -37,3 +37,7 @@ jobs:
       run: |
         cd build
         ctest
+
+    - name: Build Docker image
+      run: |
+        docker build -t "${{ github.repository_owner }}/$(echo ${{ github.repository }} | tr '[:upper:]' '[:lower:]'):${{ github.run_number }}" .
